@@ -66,9 +66,9 @@ $grades = [
     ]
 ];
 ?>
-<p>
+<h1>
     Student results
-</p>
+</h1>
 <p>Physics result for Aarron: <?php
                                 echo $grades['Aarron']['Physics'];
                                 ?></p>
