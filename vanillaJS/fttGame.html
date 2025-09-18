@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+        />
+        <title>Find the Treasure</title>
+        <style>
+            #buttonContainer {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            .result {
+                margin: 0 auto;
+                margin-top: 1.5rem;
+                max-width: 510px;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="container">
+            <h1 style="text-align: center">Find the Treasure Door!</h1>
+            <p style="text-align: center">Choose one of the buttons below:</p>
+            <div id="buttonContainer">
+                <button id="door1">door1</button>
+                <button id="door2">door2</button>
+                <button id="door3">door3</button>
+            </div>
+            <div class="result">
+                <p>
+                    Your Choice:
+                    <span id="userChoice" class="pico-color-purple-500"></span>
+                </p>
+                <p>
+                    The treasure was behind
+                    <span
+                        id="computerChoice"
+                        class="pico-color-purple-500"
+                    ></span>
+                </p>
+                <p>
+                    Result:
+                    <b><span id="result" class="pico-color-grey-100"></span></b>
+                </p>
+                <p>
+                    You won:
+                    <b
+                        ><span id="counter" class="pico-color-grey-100"
+                            >0</span
+                        ></b
+                    >
+                    times!
+                </p>
+                <button class="reset hidden">Reset</button>
+            </div>
+        </main>
+        <script>
+            let buttonContainer = document.querySelector("#buttonContainer");
+            let choices = ["door1", "door2", "door3"];
+            let winCounter = 0;
+            let resetButton = document.querySelector(".reset");
+            resetButton.addEventListener("click", () => {
+                winCounter = 0;
+                document.querySelector(
+                    "#counter"
+                ).textContent = `${winCounter}`;
+            });
+            buttonContainer.addEventListener("click", (event) => {
+                // generate a random number between 0 and 3
+                let rnd = Math.floor(Math.random() * 3);
+                // use the random number to pick an element from the choices array
+                let computerChoice = choices[rnd];
+
+                let result = "";
+                if (computerChoice === event.target.id) {
+                    result = "You win!";
+                    winCounter += 1;
+                    resetButton.classList.remove("hidden");
+                } else {
+                    result = "You lose!";
+                }
+
+                document.querySelector(
+                    "#userChoice"
+                ).textContent = `${event.target.id}`;
+                document.querySelector(
+                    "#computerChoice"
+                ).textContent = `${computerChoice}`;
+                document.querySelector("#result").textContent = `${result}`;
+                document.querySelector(
+                    "#counter"
+                ).textContent = `${winCounter}`;
+            });
+        </script>
+    </body>
+</html>

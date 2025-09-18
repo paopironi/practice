@@ -3,21 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
     <title>RPSGame</title>
+    <style>
+      #buttonContainer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .result {
+        margin: 0 auto;
+        margin-top: 1.5rem;
+        max-width: 510px;
+      }
+    </style>
   </head>
 
   <body>
-    <main>
-      <h1>RPS Game!</h1>
-      <p>Choose one of the buttons below:</p>
-      <p id="buttonContainer">
+    <main class="container">
+      <h1 style="text-align: center">My RPS Game</h1>
+      <p style="text-align: center">Choose one of the buttons below:</p>
+      <div id="buttonContainer">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
-      </p>
-      <p>Your Choice: <span id="userChoice"></span></p>
-      <p>Computer Choice: <span id="computerChoice"></span></p>
-      <p>Result: <span id="result"></span></p>
+      </div>
+      <div class="result">
+        <p>
+          Your Choice:
+          <span id="userChoice" class="pico-color-purple-500"></span>
+        </p>
+        <p>
+          Computer Choice:
+          <span id="computerChoice" class="pico-color-purple-500"></span>
+        </p>
+        <p>
+          Result: <b><span id="result" class="pico-color-grey-100"></span></b>
+        </p>
+      </div>
     </main>
     <script>
       let buttonContainer = document.querySelector("#buttonContainer");
