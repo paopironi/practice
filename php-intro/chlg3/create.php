@@ -48,7 +48,7 @@ if (isset($_GET['errors'])) {
         </div>
         <div class="form-group mt-3">
             <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="<?= $price; ?>">
+            <input type="text" class="form-control" id="price" name="price" placeholder="Price (pence)" value="<?= $price; ?>">
             <?php
             if (isset($error) && in_array("price", $error)) {
             ?>
@@ -62,7 +62,7 @@ if (isset($_GET['errors'])) {
         </div>
         <div class="form-group mt-3">
             <label for="img">Image</label>
-            <input type="text" class="form-control" id="img" name="img" placeholder="Image" value="<?= $img; ?>">
+            <input type="text" class="form-control" id="img" name="img" placeholder="Image url" value="<?= $img; ?>">
         </div>
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
