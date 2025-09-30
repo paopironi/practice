@@ -34,6 +34,9 @@ if (isset($_POST)) {
 ?>
             <main class="container py-3">
                 <p>Item successfully updated!</p>
+                <div class="mt-3">
+                    <a href="/">All products</a>
+                </div>
             </main>
 <?php
             require("includes/footer.php");
