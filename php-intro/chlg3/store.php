@@ -5,6 +5,9 @@ if (isset($_POST)) {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $img = $_POST['img'];
+    if ($img == '') {
+        $img = 'placehold.png';
+    }
     // Validate the input. Required fields should not be empty. Price should be numeric.
     if ($name == "") {
         $error[] = "name";
