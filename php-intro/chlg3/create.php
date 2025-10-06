@@ -1,4 +1,5 @@
 <?php
+$title = 'Create';
 require("includes/nav.php");
 require("connect_db.php");
 if (isset($_GET['errors'])) {

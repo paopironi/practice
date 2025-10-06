@@ -1,4 +1,5 @@
 <?php
+$title = 'Edit';
 require("includes/nav.php");
 require("connect_db.php");
 $item_id = $_GET['id'];

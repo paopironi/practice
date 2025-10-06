@@ -6,6 +6,7 @@ if (isset($_POST)) {
     mysqli_stmt_bind_param($query, "i", $item_id);
     $deleted = @mysqli_stmt_execute($query);
     if ($deleted) {
+        $title = 'Delete';
         require("includes/nav.php");
 ?>
         <main class="container py-3">
